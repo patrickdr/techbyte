@@ -1,0 +1,8 @@
+; $Id$
+ 
+name = blockoverride
+description = This module overrides block contents.
+package = 7m modules
+core = 7.x
+ 
+files[] = blockoverride.module

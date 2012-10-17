@@ -1,0 +1,40 @@
+<?php
+// $Id: example.module Exp $
+ 
+/**
+ * Implementation of hook_block_info().
+ */
+function blockoverride_block_info() {
+	//print_r("aaa"); exit;
+  $blocks['my-block-id'] = array(
+    'info' => t('Block Name'),
+  );
+  return $blocks;
+}
+ 
+/**
+ * Implementation of hook_block_view().
+ */
+function blockoverride_block_view($delta='') {
+  $block = array();
+  switch ($delta) {
+    case 'my-block-id':
+      $block['subject'] = t('Block Name');
+      $block['content'] = blockoverride_contents();
+      break;
+  }
+  return $block;
+}
+ 
+/**
+ * custom html block
+ * @return string
+ */
+function blockoverride_contents() {
+  return '
+    </p><div class="body">
+      Hello World, this is a example custom Block
+    </div><p>
+  ';
+}
+?>
